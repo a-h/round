@@ -23,6 +23,23 @@ There are two functions:
  * 2.5 = 3
  * 3.5 = 4
 
+# How to use
+
+```
+go get install github.com/a-h/round
+```
+
+```
+import "github.com/a-h/round"
+
+func main() {
+    fmt.Println(round.ToEven(float64(-3.5), 0)) // -4
+    fmt.Println(round.ToEven(float64(-2.5), 0)) // -2
+    fmt.Println(round.ToEven(float64(-1.5), 0)) // -2
+    fmt.Println(round.ToEven(float64(-1.49), 0)) // -1
+}
+```
+
 # Reference
 
 Learn about Rounding Methods.

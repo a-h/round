@@ -2,12 +2,12 @@ package round
 
 // ToEven rounds to the nearest even number.
 // Used in Python 3 (but not Python 2, which uses AwayFromZero).
+// -3.5 rounds to -4
+// -2.5 rounds to -2
+// -1.5 rounds to -2
 // 1.5 rounds to 2
 // 2.5 rounds to 2
 // 3.5 rounds to 4
-// -1.5 rounds to -2
-// -2.5 rounds to -2
-// -3.5 rounds to -4
 func ToEven(v float64, decimals int) float64 {
 	// Round by multiplying by 10 then flooring the result.
 	// e.g. 1.234 to 2 dp would multiply by 100 to get 123.4.
