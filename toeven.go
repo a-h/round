@@ -29,19 +29,11 @@ func ToEven(v float64, decimals int) float64 {
 			// It's even, so round to it.
 			return float64(floored) / pow
 		}
-		// Or we need to round to the nearest even, for negative
-		// numbers, that's by subtraction, for positive, by
-		// addition.
-		if v < 0 {
-			return (float64(floored) / pow) - 1
-		}
-		return (float64(floored) / pow) + 1
 	}
 
-	// Otherwise, subtract 0.5 from the scaled value and floor it.
-	// e.g. 123.4 + 0.5 = 123.9
-	// Floor it, and you're left with 123.
-	// Divide it by the power of 100, and you get 1.23, as expected.
+	// Or we need to round to the nearest even, for negative
+	// numbers, that's by subtraction, for positive, by
+	// addition.
 	if v < 0 {
 		return float64(int64((v*pow)-0.5)) / pow
 	}
