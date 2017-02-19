@@ -26,7 +26,7 @@ There are two functions:
 # How to use
 
 ```
-go get install github.com/a-h/round
+go get github.com/a-h/round
 ```
 
 ```
