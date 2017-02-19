@@ -144,6 +144,11 @@ func TestToEven(t *testing.T) {
 			decimals: 3,
 			expected: 2.556,
 		},
+		{
+			in:       -2.5555555,
+			decimals: 2,
+			expected: -2.56,
+		},
 	}
 
 	for _, test := range tests {
