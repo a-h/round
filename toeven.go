@@ -1,5 +1,7 @@
 package round
 
+import "math"
+
 // ToEven rounds to the nearest even number.
 // Used in Python 3 (but not Python 2, which uses AwayFromZero).
 // -3.5 rounds to -4
@@ -17,17 +19,13 @@ func ToEven(v float64, decimals int) float64 {
 	}
 	// This conversion floors the float, e.g. 123.4 returns 123.
 	// We can undo the operation later to carry out the rounding.
-	floored := int(v * pow)
-
-	// First, get the number after the decimal place, e.g.:
-	// 123.4 would return 0.4
-	afterDecimal := (v * pow) - float64(floored)
+	intPart, fracPart := math.Modf(v * pow)
 
 	// If we're at the midpoint.
-	if afterDecimal == 0.5 || afterDecimal == -0.5 {
-		if floored%2 == 0 {
+	if fracPart == 0.5 || fracPart == -0.5 {
+		if int64(intPart)%2 == 0 {
 			// It's even, so round to it.
-			return float64(floored) / pow
+			return intPart / pow
 		}
 	}
 
