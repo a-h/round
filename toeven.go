@@ -17,10 +17,16 @@ func ToEven(v float64, decimals int) float64 {
 
 	// This conversion floors the float, e.g. 123.4 returns 123.
 	// We can undo the operation later to carry out the rounding.
-	intPart, fracPart := math.Modf(v * pow)
+	vpow := v * pow
+	intPart, fracPart := math.Modf(vpow)
 
 	// If we're at the midpoint.
-	if fracPart == 0.5 || fracPart == -0.5 {
+	m := midpointPositive
+	if v < 0 {
+		m = midpointNegative
+	}
+
+	if isWithin(fracPart, m, tolerance) {
 		if int64(intPart)%2 == 0 {
 			// It's even, so round to it.
 			return intPart / pow
@@ -30,8 +36,12 @@ func ToEven(v float64, decimals int) float64 {
 	// Or we need to round to the nearest even, for negative
 	// numbers, that's by subtraction, for positive, by
 	// addition.
-	if v < 0 {
-		return float64(int64((v*pow)-0.5)) / pow
+	return float64(int64(vpow+(m*1.001))) / pow
+}
+
+func isWithin(a float64, b float64, tolerance float64) bool {
+	if a > b {
+		return a-b <= tolerance
 	}
-	return float64(int64((v*pow)+0.5)) / pow
+	return b-a <= tolerance
 }

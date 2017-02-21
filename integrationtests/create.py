@@ -1,6 +1,8 @@
-min = -10.0
-max = 10.0
-step = 0.0001
+from decimal import *
+
+min = Decimal('-10.0')
+max = Decimal('10.0')
+step = Decimal('0.0001')
 places = 3
 
 current = min
