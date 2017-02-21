@@ -8,5 +8,6 @@ func benchmarkToEven(v float64, places int, b *testing.B) {
 	}
 }
 
-func BenchmarkToEvenPositiveOdd(b *testing.B)  { benchmarkToEven(1.5, 0, b) }
-func BenchmarkToEvenPositiveEven(b *testing.B) { benchmarkToEven(2.5, 0, b) }
+func BenchmarkToEvenPositiveOdd(b *testing.B)    { benchmarkToEven(1.5, 0, b) }
+func BenchmarkToEvenPositiveEven(b *testing.B)   { benchmarkToEven(2.5, 0, b) }
+func BenchmarkToEvenMultiplePlaces(b *testing.B) { benchmarkToEven(1.12344, 4, b) }
