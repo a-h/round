@@ -13,7 +13,10 @@ import "math"
 func ToEven(v float64, decimals int) float64 {
 	// Round by multiplying by 10 then flooring the result.
 	// e.g. 1.234 to 2 dp would multiply by 100 to get 123.4.
-	pow := math.Pow10(decimals)
+	var pow float64 = 1
+	for i := 0; i < decimals; i++ {
+		pow *= 10
+	}
 
 	// This conversion floors the float, e.g. 123.4 returns 123.
 	// We can undo the operation later to carry out the rounding.
