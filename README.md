@@ -7,21 +7,21 @@ All of the implementations I saw lacked unit tests or comments to make it easy t
 There are two functions:
 
 * ToEven
- * Default in Python 3 and C#
- * -3.5 = -4
- * -2.5 = -2
- * -1.5 = -2
- * 1.5 = 2
- * 2.5 = 2
- * 3.5 = 4
+  * Default in Python 3 and C#
+  * -3.5 = -4
+  * -2.5 = -2
+  * -1.5 = -2
+  * 1.5 = 2
+  * 2.5 = 2
+  * 3.5 = 4
 * AwayFromZero
- * Default in Python 2
- * -3.5 = -4
- * -2.5 = -3
- * -1.5 = -2
- * 1.5 = 2
- * 2.5 = 3
- * 3.5 = 4
+  * Default in Python 2
+  * -3.5 = -4
+  * -2.5 = -3
+  * -1.5 = -2
+  * 1.5 = 2
+  * 2.5 = 3
+  * 3.5 = 4
 
 # How to use
 
