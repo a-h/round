@@ -1,6 +1,7 @@
 package round
 
 import "testing"
+import "math"
 
 func TestAwayFromZero(t *testing.T) {
 	tests := []struct {
@@ -96,5 +97,12 @@ func TestAwayFromZero(t *testing.T) {
 		if actual != test.expected {
 			t.Errorf("Rounding %v to %d decimal places. Expected %v, but got %v.", test.in, test.decimals, test.expected, actual)
 		}
+	}
+}
+
+func TestAwayFromZeroNaN(t *testing.T) {
+	result := AwayFromZero(math.NaN(), 0)
+	if !math.IsNaN(result) {
+		t.Errorf("When an input is NaN, the result should also be NaN.")
 	}
 }

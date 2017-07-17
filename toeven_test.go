@@ -1,6 +1,9 @@
 package round
 
-import "testing"
+import (
+	"math"
+	"testing"
+)
 
 func TestToEven(t *testing.T) {
 	tests := []struct {
@@ -162,5 +165,12 @@ func TestToEven(t *testing.T) {
 		if actual != test.expected {
 			t.Errorf("Rounding %v to %d decimal places. Expected %v, but got %v.", test.in, test.decimals, test.expected, actual)
 		}
+	}
+}
+
+func TestToEvenNaN(t *testing.T) {
+	result := ToEven(math.NaN(), 0)
+	if !math.IsNaN(result) {
+		t.Errorf("When an input is NaN, the result should also be NaN.")
 	}
 }
